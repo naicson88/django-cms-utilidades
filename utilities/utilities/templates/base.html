@@ -1,0 +1,39 @@
+{# Replace this with your base template #}
+{% comment %} {% extends "bootstrap5/base.html" %} {% endcomment %}
+
+
+{% load cms_tags sekizai_tags %}
+{% load djangocms_alias_tags %}
+{% load menu_tags %}
+
+<html>
+   
+    <head>
+        <title>{% page_attribute "page_title" %}</title>
+        {% render_block "css" %}
+    </head>
+    
+    <body style="background-color: #222;">
+        <ul class="nav">
+            {% show_menu 0 100 100 100 %}
+        </ul>
+
+        {% block content %}
+            {% block polls_content %}
+            {% endblock %}
+        {% endblock %}
+
+        {% cms_toolbar %}
+        {% placeholder "feature" %}
+        {% placeholder "content" %}
+        {% placeholder "splashbox" %}
+        {% render_block "js" %} 
+
+
+        <footer>
+            {% static_alias 'footer' %}
+        </footer>
+    </body>
+</html> 
+
+

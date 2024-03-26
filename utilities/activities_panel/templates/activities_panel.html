@@ -1,0 +1,25 @@
+{% load static %}
+{% load cms_tags %}
+{% load sekizai_tags %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'activities_panel.css' %}">
+</head>
+<script src="{% static 'activities_panel.js' %}"></script>
+
+<h1>{{instance.title}}  </h1>
+
+<div class="container"> 
+    
+    <div class="header-container">
+        <h1>{{instance.title}}</h1>
+    </div>
+
+    <div class="container-cards">
+        {% for child in instance.child_plugin_instances %}
+        <h3>{{ child.image.url }}</h3>
+            {% include "activitie.html" with child=child %}
+        {% endfor %}       
+    </div>   
+
+</div>

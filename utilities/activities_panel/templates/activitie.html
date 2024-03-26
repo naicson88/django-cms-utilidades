@@ -1,0 +1,14 @@
+{% load cms_tags %}
+{% load sekizai_tags %}
+{% load static %}
+
+<div class="single-card">
+    {% if child %}
+        <div class="card-img">
+            <img src="{{ child.img.url }}" alt="{{ child.title }}">
+        </div>
+        <div class="card-description">
+            {{ child.title }}
+        </div>
+    {% endif %}
+</div>
